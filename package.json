@@ -1,6 +1,6 @@
 {
   "name": "@xch/audition-cleanup",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Adobe Audition project cleanup CLI tool.",
   "main": "index.js",
   "bin": {

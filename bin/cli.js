@@ -16,6 +16,8 @@ var inputDirs = (Array.isArray(argv._) ? argv._ : [argv._]).map(path.normalize);
 
 async.eachSeries(inputDirs, function cleanupThisProject (projectDir, next) {
 
+  console.log('Checking directory: ' + path.resolve(projectDir));
+
   cleanupProjectFolder(projectDir, function (err, filesDeleted) {
 
     if (thenErrorHelper(err, next)) return;
@@ -27,5 +29,9 @@ async.eachSeries(inputDirs, function cleanupThisProject (projectDir, next) {
   });
 
 }, function cleanupAllComplete (err) {
-  console.log('Done', err);
+
+  if (thenErrorHelper(err)) return;
+
+  console.log('Cleanup complete.');
+
 });

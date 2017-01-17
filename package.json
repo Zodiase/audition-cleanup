@@ -7,6 +7,7 @@
     "audition-cleanup": "./bin/cli.js"
   },
   "scripts": {
+    "publish": "npm run build && npm publish",
     "build": "npm run lint && npm run compile",
     "compile": "babel src -d lib",
     "lint": "eslint src/*.js src/**/*.js",

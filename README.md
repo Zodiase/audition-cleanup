@@ -4,6 +4,8 @@ clean up was successful.
 
 # Install
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Zodiase/audition-cleanup.svg)](https://greenkeeper.io/)
+
 ```
 $ npm install @xch/audition-cleanup
 ```

@@ -38,7 +38,12 @@ async.eachSeries(inputDirs, function cleanupThisProject (projectDir, next) {
 
     if (thenErrorHelper(err, next)) return;
 
-    console.log('Files deleted:', filesDeleted);
+    if (filesDeleted.length === 0) {
+      console.log('No files to delete.');
+    } else {
+      console.log('Files deleted:');
+      filesDeleted.forEach((filePath) => console.log(`- ${filePath}`));
+    }
 
     next(null);
 

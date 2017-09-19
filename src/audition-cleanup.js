@@ -14,38 +14,55 @@
  * limitations under the License.
  */
 
-const fs = require('fs'),
-      path = require('path'),
-      glob = require('glob'),
-      async = require("async"),
-      xml2js = require('xml2js');
+const
+fs = require('fs'),
+path = require('path'),
+glob = require('glob'),
+async = require("async"),
+xml2js = require('xml2js');
 
 import {
   thenErrorHelper
 } from './thenErrorHelper.js';
 
 const projectFileScanners = {};
+
 projectFileScanners['1.0'] =
 projectFileScanners['1.1'] =
 projectFileScanners['1.2'] =
-projectFileScanners['1.3'] = (rootNode, filesToKeep) => {
+projectFileScanners['1.3'] =
+projectFileScanners['1.4'] =
+(rootNode, filesToKeep) => {
 
-  if (!(rootNode.files && Array.isArray(rootNode.files)
-        && rootNode.files.length >= 1)) {
+  // Validate file schema.
+  if (!(
+    rootNode.files
+    && Array.isArray(rootNode.files)
+    && rootNode.files.length >= 1
+  )) {
     throw new Error('Invalid project file. Unable to find file list.');
   }
 
   // # Collect files from each file list.
   rootNode.files.forEach((fileListNode) => {
-    if (fileListNode && typeof fileListNode === 'object'
-        && fileListNode.file && Array.isArray(fileListNode.file)
-        && fileListNode.file.length > 0) {
+    if (
+      fileListNode
+      && typeof fileListNode === 'object'
+      && fileListNode.file
+      && Array.isArray(fileListNode.file)
+      && fileListNode.file.length > 0
+    ) {
 
       fileListNode.file.forEach((fileNode) => {
 
-        if (fileNode && typeof fileNode === 'object'
-            && fileNode.$ && typeof fileNode.$ === 'object'
-            && fileNode.$.relativePath && typeof fileNode.$.relativePath === 'string') {
+        if (
+          fileNode
+          && typeof fileNode === 'object'
+          && fileNode.$
+          && typeof fileNode.$ === 'object'
+          && fileNode.$.relativePath
+          && typeof fileNode.$.relativePath === 'string'
+        ) {
 
           filesToKeep.add(fileNode.$.relativePath);
 
@@ -179,7 +196,12 @@ export const cleanupProjectFolder = (rootDir, then) => {
 
       if (thenErrorHelper(err, then)) return;
 
-      console.log('Files to keep:', filesToKeep);
+      if (filesToKeep.size === 0) {
+        console.log('No files to keep.');
+      } else {
+        console.log('Files to keep:');
+        filesToKeep.forEach((filePath) => console.log(`+ ${filePath}`));
+      }
 
       removeUnusedFilesInProjectFolder(rootDir, filesToKeep, then);
 

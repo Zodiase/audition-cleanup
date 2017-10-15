@@ -1,11 +1,16 @@
 {
   "name": "@xch/audition-cleanup",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Adobe Audition project cleanup CLI tool.",
-  "main": "index.js",
+  "main": "src/audition-cleanup.js",
   "bin": {
     "audition-cleanup": "./bin/cli.js"
   },
+  "files": [
+    "bin",
+    "lib",
+    "src"
+  ],
   "scripts": {
     "build": "npm run lint && npm run compile",
     "compile": "babel src -d lib",

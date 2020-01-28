@@ -1,12 +1,11 @@
 [![Build Status](https://travis-ci.com/Zodiase/audition-cleanup.svg?branch=master)](https://travis-ci.com/Zodiase/audition-cleanup)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Zodiase/audition-cleanup.svg)](https://greenkeeper.io/)
 
 This program scans the given Adobe Audition project directories and deletes unused files.
 Please make sure to backup your data and only delete your backup after verifying the 
 clean up was successful.
 
 # Install
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/Zodiase/audition-cleanup.svg)](https://greenkeeper.io/)
 
 ```
 $ npm install @xch/audition-cleanup

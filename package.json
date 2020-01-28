@@ -13,9 +13,12 @@
   ],
   "scripts": {
     "build": "npm run lint && npm run compile",
+    "clean:build": "rm -rf lib",
     "compile": "babel src -d lib",
     "lint": "eslint src/*.js src/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "npm run build",
+    "test:build": "npm run build && npm run clean:build",
+    "test": "npm run test:build"
   },
   "repository": {
     "type": "git",

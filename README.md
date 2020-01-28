@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Zodiase/audition-cleanup.svg?branch=master)](https://travis-ci.com/Zodiase/audition-cleanup)
+
 This program scans the given Adobe Audition project directories and deletes unused files.
 Please make sure to backup your data and only delete your backup after verifying the 
 clean up was successful.

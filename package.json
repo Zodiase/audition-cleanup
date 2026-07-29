@@ -32,14 +32,14 @@
   "homepage": "https://github.com/Zodiase/audition-cleanup#readme",
   "dependencies": {
     "async": "^3.1.1",
-    "glob": "^7.1.6",
+    "glob": "^13.0.6",
     "xml2js": "^0.4.23",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
+    "@babel/cli": "^8.0.4",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
-    "eslint": "^6.8.0"
+    "eslint": "^10.8.0"
   }
 }
